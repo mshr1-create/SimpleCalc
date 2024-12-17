@@ -83,6 +83,7 @@
             BtnSeven.TabIndex = 1;
             BtnSeven.Text = "7";
             BtnSeven.UseVisualStyleBackColor = true;
+            BtnSeven.Click += BtnSeven_Click;
             // 
             // BtnEight
             // 
