@@ -83,7 +83,7 @@
             BtnSeven.TabIndex = 1;
             BtnSeven.Text = "7";
             BtnSeven.UseVisualStyleBackColor = true;
-            BtnSeven.Click += BtnSeven_Click;
+            BtnSeven.Click += AppendNumberToFormula;
             // 
             // BtnEight
             // 
@@ -93,6 +93,7 @@
             BtnEight.TabIndex = 1;
             BtnEight.Text = "8";
             BtnEight.UseVisualStyleBackColor = true;
+            BtnEight.Click += AppendNumberToFormula;
             // 
             // BtnNine
             // 
@@ -102,6 +103,7 @@
             BtnNine.TabIndex = 1;
             BtnNine.Text = "9";
             BtnNine.UseVisualStyleBackColor = true;
+            BtnNine.Click += AppendNumberToFormula;
             // 
             // BtnDivision
             // 
@@ -120,6 +122,7 @@
             BtnFour.TabIndex = 1;
             BtnFour.Text = "4";
             BtnFour.UseVisualStyleBackColor = true;
+            BtnFour.Click += AppendNumberToFormula;
             // 
             // BtnFive
             // 
@@ -129,6 +132,7 @@
             BtnFive.TabIndex = 1;
             BtnFive.Text = "5";
             BtnFive.UseVisualStyleBackColor = true;
+            BtnFive.Click += AppendNumberToFormula;
             // 
             // BtnSix
             // 
@@ -138,6 +142,7 @@
             BtnSix.TabIndex = 1;
             BtnSix.Text = "6";
             BtnSix.UseVisualStyleBackColor = true;
+            BtnSix.Click += AppendNumberToFormula;
             // 
             // BtnMultiplication
             // 
@@ -156,6 +161,7 @@
             BtnOne.TabIndex = 1;
             BtnOne.Text = "1";
             BtnOne.UseVisualStyleBackColor = true;
+            BtnOne.Click += AppendNumberToFormula;
             // 
             // BtnTwo
             // 
@@ -165,6 +171,7 @@
             BtnTwo.TabIndex = 1;
             BtnTwo.Text = "2";
             BtnTwo.UseVisualStyleBackColor = true;
+            BtnTwo.Click += AppendNumberToFormula;
             // 
             // BtnThree
             // 
@@ -174,6 +181,7 @@
             BtnThree.TabIndex = 1;
             BtnThree.Text = "3";
             BtnThree.UseVisualStyleBackColor = true;
+            BtnThree.Click += AppendNumberToFormula;
             // 
             // BtnSubtraction
             // 
@@ -192,6 +200,7 @@
             BtnZero.TabIndex = 1;
             BtnZero.Text = "0";
             BtnZero.UseVisualStyleBackColor = true;
+            BtnZero.Click += AppendNumberToFormula;
             // 
             // BtnEqual
             // 
