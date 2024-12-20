@@ -9,7 +9,7 @@ namespace SimpleCalc
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Formula.Text = "0";
+            Formula.Text = "";
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -18,15 +18,14 @@ namespace SimpleCalc
         }
 
         // 数字ボタンを押下したときの共通処理メソッド
+        int count = 0;
         private void AppendNumberToFormula(object sender, EventArgs e)
         {
-            int length = Formula.Text.Length;
-
-            if (length >= 10)
+            // 入力された文字数をチェック
+            if (count >= 10)
             {
                 return;
             }
-
 
             string number = ((Button)sender).Text;
             // 現在の表示テキスト
@@ -51,6 +50,7 @@ namespace SimpleCalc
             // Case 3: 現在が "0" 以外の状態で、新たな数字を続けて押した場合
             // 前回の数字列の末尾に今回の数字を結合
             Formula.Text = currentText + number;
+            count++;
         }
 
         private void BtnSeven_Click(object sender, EventArgs e)
