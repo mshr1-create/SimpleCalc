@@ -20,6 +20,14 @@ namespace SimpleCalc
         // 数字ボタンを押下したときの共通処理メソッド
         private void AppendNumberToFormula(object sender, EventArgs e)
         {
+            int length = Formula.Text.Length;
+
+            if (length >= 10)
+            {
+                return;
+            }
+
+
             string number = ((Button)sender).Text;
             // 現在の表示テキスト
             string currentText = Formula.Text;
