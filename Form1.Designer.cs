@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             Formula = new Label();
-            Reasult = new Label();
+            Result = new Label();
             Equal = new Label();
             BtnSeven = new Button();
             BtnEight = new Button();
@@ -58,13 +58,13 @@
             Formula.Size = new Size(212, 41);
             Formula.TabIndex = 0;
             // 
-            // Reasult
+            // Result
             // 
-            Reasult.BorderStyle = BorderStyle.FixedSingle;
-            Reasult.Location = new Point(23, 73);
-            Reasult.Name = "Reasult";
-            Reasult.Size = new Size(258, 53);
-            Reasult.TabIndex = 0;
+            Result.BorderStyle = BorderStyle.FixedSingle;
+            Result.Location = new Point(23, 73);
+            Result.Name = "Result";
+            Result.Size = new Size(258, 53);
+            Result.TabIndex = 0;
             // 
             // Equal
             // 
@@ -113,6 +113,7 @@
             BtnDivision.TabIndex = 1;
             BtnDivision.Text = "÷";
             BtnDivision.UseVisualStyleBackColor = true;
+            BtnDivision.Click += BtnDivision_Click;
             // 
             // BtnFour
             // 
@@ -152,6 +153,7 @@
             BtnMultiplication.TabIndex = 1;
             BtnMultiplication.Text = "×";
             BtnMultiplication.UseVisualStyleBackColor = true;
+            BtnMultiplication.Click += BtnMultiplication_Click;
             // 
             // BtnOne
             // 
@@ -191,6 +193,7 @@
             BtnSubtraction.TabIndex = 1;
             BtnSubtraction.Text = "-";
             BtnSubtraction.UseVisualStyleBackColor = true;
+            BtnSubtraction.Click += BtnSubtraction_Click;
             // 
             // BtnZero
             // 
@@ -210,6 +213,7 @@
             BtnEqual.TabIndex = 1;
             BtnEqual.Text = "=";
             BtnEqual.UseVisualStyleBackColor = true;
+            BtnEqual.Click += BtnEqual_Click;
             // 
             // BtnAddition
             // 
@@ -219,6 +223,7 @@
             BtnAddition.TabIndex = 1;
             BtnAddition.Text = "+";
             BtnAddition.UseVisualStyleBackColor = true;
+            BtnAddition.Click += BtnAddition_Click;
             // 
             // BtnClearEntry
             // 
@@ -260,7 +265,7 @@
             Controls.Add(BtnFour);
             Controls.Add(BtnEight);
             Controls.Add(BtnSeven);
-            Controls.Add(Reasult);
+            Controls.Add(Result);
             Controls.Add(Equal);
             Controls.Add(Formula);
             Name = "Form1";
@@ -272,7 +277,7 @@
         #endregion
 
         private Label Formula;
-        private Label Reasult;
+        private Label Result;
         private Label Equal;
         private Button BtnSeven;
         private Button BtnEight;

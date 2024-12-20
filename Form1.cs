@@ -19,6 +19,9 @@ namespace SimpleCalc
 
         // ”šƒ{ƒ^ƒ“‚ğ‰Ÿ‰º‚µ‚½‚Æ‚«‚Ì‹¤’Êˆ—ƒƒ\ƒbƒh
         int count = 0;
+        int operateNum = 0; // 1: +, 2: -, 3: ~(*), 4: €(/)
+        int num1 = 0;
+        int num2 = 0;
         private void AppendNumberToFormula(object sender, EventArgs e)
         {
             // “ü—Í‚³‚ê‚½•¶š”‚ğƒ`ƒFƒbƒN
@@ -57,5 +60,75 @@ namespace SimpleCalc
         {
 
         }
+
+        private void BtnAddition_Click(object sender, EventArgs e)
+        {
+            operateNum = 1;
+            num1 = int.Parse(Formula.Text);
+            count = 0;
+            Formula.Text += " + ";
+        }
+
+        private void BtnSubtraction_Click(object sender, EventArgs e)
+        {
+            operateNum = 2;
+            num1 = int.Parse(Formula.Text);
+            count = 0;
+            Formula.Text += " - ";
+        }
+
+        private void BtnMultiplication_Click(object sender, EventArgs e)
+        {
+            operateNum = 3;
+            num1 = int.Parse(Formula.Text);
+            count = 0;
+            Formula.Text += " ~ ";
+        }
+
+        private void BtnDivision_Click(object sender, EventArgs e)
+        {
+            operateNum = 4;
+            num1 = int.Parse(Formula.Text);
+            count = 0;
+            Formula.Text += " € ";
+        }
+
+        private void BtnEqual_Click(object sender, EventArgs e)
+        {   
+
+            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '~', '€' });
+            // ‰‰Zq‚©‚ç”‚¦‚Ä2•¶š–ÚˆÈ~‚ğæ“¾‚·‚é
+            num2 = int.Parse(Formula.Text.Substring(operatorIndex + 2));
+
+            // case1: ‰ÁZ
+            if (operateNum == 1)
+            {
+                Result.Text = (num1 + num2).ToString();
+            }
+
+            // case2: Œ¸Z
+            if (operateNum == 2)
+            {
+                Result.Text = (num1 - num2).ToString();
+            }
+
+            // case3: æZ
+            if (operateNum == 3)
+            {
+                Result.Text = (num1 * num2).ToString();
+            }
+
+            // case4: œZ
+            if (operateNum == 4)
+            {
+                if (num2 == 0)
+                {
+                    return;
+                }
+                Result.Text = (num1 / num2).ToString();
+            }
+        }
     }
 }
+
+
