@@ -20,8 +20,8 @@ namespace SimpleCalc
         // 数字ボタンを押下したときの共通処理メソッド
         int count = 0;
         int operateNum = 0; // 1: +, 2: -, 3: ×(*), 4: ÷(/)
-        int num1 = 0;
-        int num2 = 0;
+        long num1 = 0;
+        long num2 = 0;
         private void AppendNumberToFormula(object sender, EventArgs e)
         {
             // 入力された文字数をチェック
@@ -64,7 +64,7 @@ namespace SimpleCalc
         private void BtnAddition_Click(object sender, EventArgs e)
         {
             operateNum = 1;
-            num1 = int.Parse(Formula.Text);
+            num1 = long.Parse(Formula.Text);
             count = 0;
             Formula.Text += " + ";
         }
@@ -72,7 +72,7 @@ namespace SimpleCalc
         private void BtnSubtraction_Click(object sender, EventArgs e)
         {
             operateNum = 2;
-            num1 = int.Parse(Formula.Text);
+            num1 = long.Parse(Formula.Text);
             count = 0;
             Formula.Text += " - ";
         }
@@ -80,7 +80,7 @@ namespace SimpleCalc
         private void BtnMultiplication_Click(object sender, EventArgs e)
         {
             operateNum = 3;
-            num1 = int.Parse(Formula.Text);
+            num1 = long.Parse(Formula.Text);
             count = 0;
             Formula.Text += " × ";
         }
@@ -88,7 +88,7 @@ namespace SimpleCalc
         private void BtnDivision_Click(object sender, EventArgs e)
         {
             operateNum = 4;
-            num1 = int.Parse(Formula.Text);
+            num1 = long.Parse(Formula.Text);
             count = 0;
             Formula.Text += " ÷ ";
         }
@@ -98,7 +98,7 @@ namespace SimpleCalc
 
             int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
             // 演算子から数えて2文字目以降を取得する
-            num2 = int.Parse(Formula.Text.Substring(operatorIndex + 2));
+            num2 = long.Parse(Formula.Text.Substring(operatorIndex + 2));
 
             // case1: 加算
             if (operateNum == 1)
