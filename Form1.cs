@@ -40,7 +40,7 @@ namespace SimpleCalc
             string[] tokens = currentText.Split(' ');
 
             // ‘æ1€‚Æ‰‰Zq‚ª“ü—ÍÏ‚İ‚ÅA‘æ2€‚É0‚ª“ü—Í‚³‚ê‚Ä‚¢‚éê‡
-            if (tokens[tokens.Length - 1] == "0" && Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("~") || Formula.Text.Contains("€"))
+            if (tokens[tokens.Length - 1] == "0" && ( Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("~") || Formula.Text.Contains("€")))
             {
                 // Œ»İ‚Ì•¶š—ñ‚Ì’·‚³‚ğæ“¾
                 int length = currentText.Length;
@@ -147,6 +147,7 @@ namespace SimpleCalc
             {
                 if (num2 == 0)
                 {
+                    Result.Text = "0‚ÅŠ„‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñ";
                     return;
                 }
                 Result.Text = (num1 / num2).ToString();
