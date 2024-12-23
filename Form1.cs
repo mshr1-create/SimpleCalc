@@ -122,7 +122,15 @@ namespace SimpleCalc
 
             int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
             // 演算子から数えて2文字目以降を取得する
-            num2 = long.Parse(Formula.Text.Substring(operatorIndex + 2));
+            if (Formula.Text.Substring(operatorIndex + 2).Equals(""))
+            {
+                return;
+            }
+            else 
+            {
+                num2 = long.Parse(Formula.Text.Substring(operatorIndex + 2));
+            }
+            
 
             // case1: 加算
             if (operateNum == 1)
@@ -152,6 +160,19 @@ namespace SimpleCalc
                 }
                 Result.Text = (num1 / num2).ToString();
             }
+
+            // イコールボタンを押下後、0～9のボタンを押下できないようにする
+            BtnZero.Enabled = false;
+            BtnOne.Enabled = false;
+            BtnTwo.Enabled = false;
+            BtnThree.Enabled = false;
+            BtnFour.Enabled = false;
+            BtnFive.Enabled = false;
+            BtnSix.Enabled = false;
+            BtnSeven.Enabled = false;
+            BtnEight.Enabled = false;
+            BtnNine.Enabled = false;
+            BtnClearEntry.Enabled = false;  
         }
     }
 }
