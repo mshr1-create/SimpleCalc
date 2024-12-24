@@ -3,7 +3,6 @@ C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\bin\Debug\net8.0-windows\Simpl
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\bin\Debug\net8.0-windows\SimpleCalc.runtimeconfig.json
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\bin\Debug\net8.0-windows\SimpleCalc.dll
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\bin\Debug\net8.0-windows\SimpleCalc.pdb
-C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\SimpleCalc.Form1.resources
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\SimpleCalc.csproj.GenerateResource.cache
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\SimpleCalc.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\SimpleCalc.AssemblyInfoInputs.cache
@@ -15,3 +14,4 @@ C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\refin
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\SimpleCalc.pdb
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\SimpleCalc.genruntimeconfig.cache
 C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\ref\SimpleCalc.dll
+C:\Users\manne\source\repos\SimpleCalc\SimpleCalc\obj\Debug\net8.0-windows\SimpleCalc.FormSimpleCalc.resources

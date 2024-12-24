@@ -1,12 +1,12 @@
 namespace SimpleCalc
 {
-    public partial class Form1 : Form
+    public partial class FormSimpleCalc : Form
     {
         int count = 0;
         int operateNum = 0; // 1: +, 2: -, 3: ×(*), 4: ÷(/)
         long num1 = 0;
         long num2 = 0;
-        public Form1()
+        public FormSimpleCalc()
         {
             InitializeComponent();
         }
@@ -40,7 +40,7 @@ namespace SimpleCalc
             string[] tokens = currentText.Split(' ');
 
             // 第1項と演算子が入力済みで、第2項に0が入力されている場合
-            if (tokens[tokens.Length - 1] == "0" && ( Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+            if (tokens[tokens.Length - 1] == "0" && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
             {
                 // 現在の文字列の長さを取得
                 int length = currentText.Length;
@@ -54,7 +54,7 @@ namespace SimpleCalc
             }
 
             // Case 1: 現在 "0" の状態で新たに "0" を押した場合
-            if (currentText == "0"  && number == "0")
+            if (currentText == "0" && number == "0")
             {
                 // そのまま "0" を表示（変化なし）
                 Formula.Text = "0";
@@ -118,19 +118,18 @@ namespace SimpleCalc
 
         // イコールボタンの処理
         private void BtnEqual_Click(object sender, EventArgs e)
-        {   
-
+        {
             int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
             // 演算子から数えて2文字目以降を取得する
             if (Formula.Text.Substring(operatorIndex + 2).Equals(""))
             {
                 return;
             }
-            else 
+            else
             {
                 num2 = long.Parse(Formula.Text.Substring(operatorIndex + 2));
             }
-            
+
 
             // case1: 加算
             if (operateNum == 1)
@@ -172,7 +171,38 @@ namespace SimpleCalc
             BtnSeven.Enabled = false;
             BtnEight.Enabled = false;
             BtnNine.Enabled = false;
-            BtnClearEntry.Enabled = false;  
+            BtnClearEntry.Enabled = false;
+        }
+
+        private void BtnClearEntry_Click(object sender, EventArgs e)
+        {
+            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
+            // 演算子を探す
+            if (operatorIndex == -1)
+            {
+                // 演算子が見つからない場合、全てクリア
+                Formula.Text = "";
+                Result.Text = "";
+                count = 0;
+            }
+            // 演算子まで入力されている場合、前後の空白を含めて演算子を削除
+            else if (Formula.Text.Substring(operatorIndex + 2).Equals(""))
+            {
+                // 第2項が入力されていない => 演算子と前後スペースを削除
+                // 安全にチェック (operatorIndex > 0)
+                int startIndex = Math.Max(0, operatorIndex - 1);
+                // Removeは [startIndex] から [count] 文字を削除する
+                Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
+                Result.Text = "";
+                count = 0;
+            }
+            else
+            {
+                // 演算子が見つかった場合、演算子以降を削除
+                Formula.Text = Formula.Text.Substring(0, operatorIndex + 2);
+                Result.Text = "";
+                count = 0;
+            }
         }
     }
 }

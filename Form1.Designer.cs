@@ -1,6 +1,6 @@
 ﻿namespace SimpleCalc
 {
-    partial class Form1
+    partial class FormSimpleCalc
     {
         /// <summary>
         ///  Required designer variable.
@@ -233,6 +233,7 @@
             BtnClearEntry.TabIndex = 1;
             BtnClearEntry.Text = "CE";
             BtnClearEntry.UseVisualStyleBackColor = true;
+            BtnClearEntry.Click += BtnClearEntry_Click;
             // 
             // BtnAllClear
             // 
@@ -243,7 +244,7 @@
             BtnAllClear.Text = "AC";
             BtnAllClear.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // FormSimpleCalc
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
@@ -268,8 +269,8 @@
             Controls.Add(Result);
             Controls.Add(Equal);
             Controls.Add(Formula);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "FormSimpleCalc";
+            Text = "簡易電卓";
             Load += Form1_Load;
             ResumeLayout(false);
         }
