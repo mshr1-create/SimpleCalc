@@ -1,3 +1,5 @@
+using System.Drawing.Text;
+
 namespace SimpleCalc
 {
     public partial class FormSimpleCalc : Form
@@ -81,95 +83,60 @@ namespace SimpleCalc
 
         }
 
-
-        // 加算ボタンの処理
-        private void BtnAddition_Click(object sender, EventArgs e)
+        private void SetOperator(int opNum, string opSymbol)
         {
             int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
-            // 第2項が空欄で、かつ演算子が含まれているかチェック
-            if (Formula.Text.Substring(operatorIndex + 2).Equals("") && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+
+            // 第2項が空欄で演算子がすでにある場合 → 演算子とその前後のスペースを削除
+            if (operatorIndex != -1 && (Formula.Text.Substring(operatorIndex + 2).Equals(""))
+                && (Formula.Text.Contains("+") || Formula.Text.Contains("-")
+                || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
             {
-                // 第2項が入力されていない => 演算子と前後スペースを削除
-                // 安全にチェック (operatorIndex > 0)
                 int startIndex = Math.Max(0, operatorIndex - 1);
-                // Removeは [startIndex] から [count] 文字を削除する
                 Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
                 Result.Text = "";
                 count = 0;
             }
 
-            operateNum = 1;
-            num1 = long.Parse(Formula.Text);
-            count = 0;
-            Formula.Text += " + ";
-        }
+            operateNum = opNum;
 
-
-
-        // 減算ボタンの処理
-        private void BtnSubtraction_Click(object sender, EventArgs e)
-        {
-            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
-            if (Formula.Text.Substring(operatorIndex + 2).Equals("") && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+            if (!string.IsNullOrEmpty(Formula.Text))
             {
-                // 第2項が入力されていない => 演算子と前後スペースを削除
-                // 安全にチェック (operatorIndex > 0)
-                int startIndex = Math.Max(0, operatorIndex - 1);
-                // Removeは [startIndex] から [count] 文字を削除する
-                Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
-                Result.Text = "";
-                count = 0;
+                num1 = long.Parse(Formula.Text);
             }
 
-            operateNum = 2;
-            num1 = long.Parse(Formula.Text);
             count = 0;
-            Formula.Text += " - ";
+            Formula.Text += opSymbol;
+
         }
 
-        // 乗算ボタンの処理
-        private void BtnMultiplication_Click(object sender, EventArgs e)
-        {
-            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
-            if (Formula.Text.Substring(operatorIndex + 2).Equals("") && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+            // 加算ボタンの処理
+            private void BtnAddition_Click(object sender, EventArgs e)
             {
-                // 第2項が入力されていない => 演算子と前後スペースを削除
-                // 安全にチェック (operatorIndex > 0)
-                int startIndex = Math.Max(0, operatorIndex - 1);
-                // Removeは [startIndex] から [count] 文字を削除する
-                Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
-                Result.Text = "";
-                count = 0;
+                SetOperator(1, " + ");
             }
 
-            operateNum = 3;
-            num1 = long.Parse(Formula.Text);
-            count = 0;
-            Formula.Text += " × ";
-        }
 
-        // 除算ボタンの処理
-        private void BtnDivision_Click(object sender, EventArgs e)
-        {
-            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
-            if (Formula.Text.Substring(operatorIndex + 2).Equals("") && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+
+            // 減算ボタンの処理
+            private void BtnSubtraction_Click(object sender, EventArgs e)
             {
-                // 第2項が入力されていない => 演算子と前後スペースを削除
-                // 安全にチェック (operatorIndex > 0)
-                int startIndex = Math.Max(0, operatorIndex - 1);
-                // Removeは [startIndex] から [count] 文字を削除する
-                Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
-                Result.Text = "";
-                count = 0;
+                SetOperator(2, " - ");
             }
 
-            operateNum = 4;
-            num1 = long.Parse(Formula.Text);
-            count = 0;
-            Formula.Text += " ÷ ";
-        }
+            // 乗算ボタンの処理
+            private void BtnMultiplication_Click(object sender, EventArgs e)
+            {
+                SetOperator(3, " × ");
+            }
 
-        // イコールボタンの処理
+            // 除算ボタンの処理
+            private void BtnDivision_Click(object sender, EventArgs e)
+            {
+                SetOperator(4, " ÷ ");
+            }
+
+            // イコールボタンの処理
         private void BtnEqual_Click(object sender, EventArgs e)
         {
             int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
