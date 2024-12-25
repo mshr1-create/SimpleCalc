@@ -243,6 +243,7 @@
             BtnAllClear.TabIndex = 1;
             BtnAllClear.Text = "AC";
             BtnAllClear.UseVisualStyleBackColor = true;
+            BtnAllClear.Click += BtnAllClear_Click;
             // 
             // FormSimpleCalc
             // 

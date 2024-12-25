@@ -204,6 +204,25 @@ namespace SimpleCalc
                 count = 0;
             }
         }
+
+        private void BtnAllClear_Click(object sender, EventArgs e)
+        {
+            //  ACボタンを押下後、第1項と演算子、第2項、計算結果をすべて削除。0～9のボタンを押下できるようにする
+            Formula.Text = "";
+            Result.Text = "";
+            count = 0;
+            BtnZero.Enabled = true;
+            BtnOne.Enabled = true;
+            BtnTwo.Enabled = true;
+            BtnThree.Enabled = true;
+            BtnFour.Enabled = true;
+            BtnFive.Enabled = true;
+            BtnSix.Enabled = true;
+            BtnSeven.Enabled = true;
+            BtnEight.Enabled = true;
+            BtnNine.Enabled = true;
+            BtnClearEntry.Enabled = true;
+        }
     }
 }
 
