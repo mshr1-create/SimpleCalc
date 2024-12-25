@@ -21,6 +21,7 @@ namespace SimpleCalc
 
         }
 
+
         // 数字ボタンを押下したときの共通処理メソッド
         private void AppendNumberToFormula(object sender, EventArgs e)
         {
@@ -80,18 +81,46 @@ namespace SimpleCalc
 
         }
 
+
         // 加算ボタンの処理
         private void BtnAddition_Click(object sender, EventArgs e)
         {
+            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
+            // 第2項が空欄で、かつ演算子が含まれているかチェック
+            if (Formula.Text.Substring(operatorIndex + 2).Equals("") && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+            {
+                // 第2項が入力されていない => 演算子と前後スペースを削除
+                // 安全にチェック (operatorIndex > 0)
+                int startIndex = Math.Max(0, operatorIndex - 1);
+                // Removeは [startIndex] から [count] 文字を削除する
+                Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
+                Result.Text = "";
+                count = 0;
+            }
+
             operateNum = 1;
             num1 = long.Parse(Formula.Text);
             count = 0;
             Formula.Text += " + ";
         }
 
+
+
         // 減算ボタンの処理
         private void BtnSubtraction_Click(object sender, EventArgs e)
         {
+            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
+            if (Formula.Text.Substring(operatorIndex + 2).Equals("") && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+            {
+                // 第2項が入力されていない => 演算子と前後スペースを削除
+                // 安全にチェック (operatorIndex > 0)
+                int startIndex = Math.Max(0, operatorIndex - 1);
+                // Removeは [startIndex] から [count] 文字を削除する
+                Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
+                Result.Text = "";
+                count = 0;
+            }
+
             operateNum = 2;
             num1 = long.Parse(Formula.Text);
             count = 0;
@@ -101,6 +130,18 @@ namespace SimpleCalc
         // 乗算ボタンの処理
         private void BtnMultiplication_Click(object sender, EventArgs e)
         {
+            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
+            if (Formula.Text.Substring(operatorIndex + 2).Equals("") && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+            {
+                // 第2項が入力されていない => 演算子と前後スペースを削除
+                // 安全にチェック (operatorIndex > 0)
+                int startIndex = Math.Max(0, operatorIndex - 1);
+                // Removeは [startIndex] から [count] 文字を削除する
+                Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
+                Result.Text = "";
+                count = 0;
+            }
+
             operateNum = 3;
             num1 = long.Parse(Formula.Text);
             count = 0;
@@ -110,6 +151,18 @@ namespace SimpleCalc
         // 除算ボタンの処理
         private void BtnDivision_Click(object sender, EventArgs e)
         {
+            int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
+            if (Formula.Text.Substring(operatorIndex + 2).Equals("") && (Formula.Text.Contains("+") || Formula.Text.Contains("-") || Formula.Text.Contains("×") || Formula.Text.Contains("÷")))
+            {
+                // 第2項が入力されていない => 演算子と前後スペースを削除
+                // 安全にチェック (operatorIndex > 0)
+                int startIndex = Math.Max(0, operatorIndex - 1);
+                // Removeは [startIndex] から [count] 文字を削除する
+                Formula.Text = Formula.Text.Remove(startIndex, 3).TrimEnd();
+                Result.Text = "";
+                count = 0;
+            }
+
             operateNum = 4;
             num1 = long.Parse(Formula.Text);
             count = 0;
@@ -155,6 +208,17 @@ namespace SimpleCalc
                 if (num2 == 0)
                 {
                     Result.Text = "0で割ることはできません";
+                    BtnZero.Enabled = false;
+                    BtnOne.Enabled = false;
+                    BtnTwo.Enabled = false;
+                    BtnThree.Enabled = false;
+                    BtnFour.Enabled = false;
+                    BtnFive.Enabled = false;
+                    BtnSix.Enabled = false;
+                    BtnSeven.Enabled = false;
+                    BtnEight.Enabled = false;
+                    BtnNine.Enabled = false;
+                    BtnClearEntry.Enabled = false;
                     return;
                 }
                 Result.Text = (num1 / num2).ToString();
