@@ -69,14 +69,18 @@
             // Equal
             // 
             Equal.BorderStyle = BorderStyle.FixedSingle;
-            Equal.Location = new Point(245, 20);
+            Equal.Font = new Font("Yu Gothic UI", 14F);
+            Equal.Location = new Point(241, 20);
             Equal.Name = "Equal";
-            Equal.Size = new Size(36, 41);
+            Equal.Padding = new Padding(8, 5, 0, 0);
+            Equal.Size = new Size(40, 41);
             Equal.TabIndex = 0;
+            Equal.Text = "=";
             Equal.Click += label3_Click;
             // 
             // BtnSeven
             // 
+            BtnSeven.Font = new Font("Yu Gothic UI", 12F);
             BtnSeven.Location = new Point(23, 144);
             BtnSeven.Name = "BtnSeven";
             BtnSeven.Size = new Size(60, 60);
@@ -87,6 +91,7 @@
             // 
             // BtnEight
             // 
+            BtnEight.Font = new Font("Yu Gothic UI", 12F);
             BtnEight.Location = new Point(89, 144);
             BtnEight.Name = "BtnEight";
             BtnEight.Size = new Size(60, 60);
@@ -97,6 +102,7 @@
             // 
             // BtnNine
             // 
+            BtnNine.Font = new Font("Yu Gothic UI", 12F);
             BtnNine.Location = new Point(155, 144);
             BtnNine.Name = "BtnNine";
             BtnNine.Size = new Size(60, 60);
@@ -107,6 +113,7 @@
             // 
             // BtnDivision
             // 
+            BtnDivision.Font = new Font("Yu Gothic UI", 12F);
             BtnDivision.Location = new Point(221, 144);
             BtnDivision.Name = "BtnDivision";
             BtnDivision.Size = new Size(60, 60);
@@ -117,6 +124,7 @@
             // 
             // BtnFour
             // 
+            BtnFour.Font = new Font("Yu Gothic UI", 12F);
             BtnFour.Location = new Point(23, 210);
             BtnFour.Name = "BtnFour";
             BtnFour.Size = new Size(60, 60);
@@ -127,6 +135,7 @@
             // 
             // BtnFive
             // 
+            BtnFive.Font = new Font("Yu Gothic UI", 12F);
             BtnFive.Location = new Point(89, 210);
             BtnFive.Name = "BtnFive";
             BtnFive.Size = new Size(60, 60);
@@ -137,6 +146,7 @@
             // 
             // BtnSix
             // 
+            BtnSix.Font = new Font("Yu Gothic UI", 12F);
             BtnSix.Location = new Point(155, 210);
             BtnSix.Name = "BtnSix";
             BtnSix.Size = new Size(60, 60);
@@ -147,6 +157,7 @@
             // 
             // BtnMultiplication
             // 
+            BtnMultiplication.Font = new Font("Yu Gothic UI", 12F);
             BtnMultiplication.Location = new Point(221, 210);
             BtnMultiplication.Name = "BtnMultiplication";
             BtnMultiplication.Size = new Size(60, 60);
@@ -157,6 +168,7 @@
             // 
             // BtnOne
             // 
+            BtnOne.Font = new Font("Yu Gothic UI", 12F);
             BtnOne.Location = new Point(23, 276);
             BtnOne.Name = "BtnOne";
             BtnOne.Size = new Size(60, 60);
@@ -167,6 +179,7 @@
             // 
             // BtnTwo
             // 
+            BtnTwo.Font = new Font("Yu Gothic UI", 12F);
             BtnTwo.Location = new Point(89, 276);
             BtnTwo.Name = "BtnTwo";
             BtnTwo.Size = new Size(60, 60);
@@ -177,6 +190,7 @@
             // 
             // BtnThree
             // 
+            BtnThree.Font = new Font("Yu Gothic UI", 12F);
             BtnThree.Location = new Point(155, 276);
             BtnThree.Name = "BtnThree";
             BtnThree.Size = new Size(60, 60);
@@ -187,6 +201,7 @@
             // 
             // BtnSubtraction
             // 
+            BtnSubtraction.Font = new Font("Yu Gothic UI", 12F);
             BtnSubtraction.Location = new Point(221, 276);
             BtnSubtraction.Name = "BtnSubtraction";
             BtnSubtraction.Size = new Size(60, 60);
@@ -197,6 +212,7 @@
             // 
             // BtnZero
             // 
+            BtnZero.Font = new Font("Yu Gothic UI", 12F);
             BtnZero.Location = new Point(23, 342);
             BtnZero.Name = "BtnZero";
             BtnZero.Size = new Size(126, 60);
@@ -207,6 +223,7 @@
             // 
             // BtnEqual
             // 
+            BtnEqual.Font = new Font("Yu Gothic UI", 12F);
             BtnEqual.Location = new Point(155, 342);
             BtnEqual.Name = "BtnEqual";
             BtnEqual.Size = new Size(60, 60);
@@ -217,6 +234,7 @@
             // 
             // BtnAddition
             // 
+            BtnAddition.Font = new Font("Yu Gothic UI", 12F);
             BtnAddition.Location = new Point(221, 342);
             BtnAddition.Name = "BtnAddition";
             BtnAddition.Size = new Size(60, 60);
@@ -227,6 +245,7 @@
             // 
             // BtnClearEntry
             // 
+            BtnClearEntry.Font = new Font("Yu Gothic UI", 12F);
             BtnClearEntry.Location = new Point(23, 408);
             BtnClearEntry.Name = "BtnClearEntry";
             BtnClearEntry.Size = new Size(126, 60);
@@ -237,6 +256,7 @@
             // 
             // BtnAllClear
             // 
+            BtnAllClear.Font = new Font("Yu Gothic UI", 12F);
             BtnAllClear.Location = new Point(155, 408);
             BtnAllClear.Name = "BtnAllClear";
             BtnAllClear.Size = new Size(126, 60);
