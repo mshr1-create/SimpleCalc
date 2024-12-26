@@ -18,11 +18,26 @@ namespace SimpleCalc
             Formula.Text = "";
         }
 
+        // ボタンの無効化/有効化をまとめて管理 
+        private void SetNumericButtonEnabled(bool enabled)
+        {
+            BtnZero.Enabled = enabled;
+            BtnOne.Enabled = enabled;
+            BtnTwo.Enabled = enabled;
+            BtnThree.Enabled = enabled;
+            BtnFour.Enabled = enabled;
+            BtnFive.Enabled = enabled;
+            BtnSix.Enabled = enabled;
+            BtnSeven.Enabled = enabled;
+            BtnEight.Enabled = enabled;
+            BtnNine.Enabled = enabled;
+            BtnClearEntry.Enabled = enabled;
+        }
+
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-
 
         // 数字ボタンを押下したときの共通処理メソッド
         private void AppendNumberToFormula(object sender, EventArgs e)
@@ -78,11 +93,6 @@ namespace SimpleCalc
             count++;
         }
 
-        private void BtnSeven_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SetOperator(int opNum, string opSymbol)
         {
             int operatorIndex = Formula.Text.IndexOfAny(new char[] { '+', '-', '×', '÷' });
@@ -110,31 +120,29 @@ namespace SimpleCalc
 
         }
 
-            // 加算ボタンの処理
-            private void BtnAddition_Click(object sender, EventArgs e)
-            {
-                SetOperator(1, " + ");
-            }
+        // 加算ボタンの処理
+        private void BtnAddition_Click(object sender, EventArgs e)
+        {
+            SetOperator(1, " + ");
+        }
 
+        // 減算ボタンの処理
+        private void BtnSubtraction_Click(object sender, EventArgs e)
+        {
+            SetOperator(2, " - ");
+        }
 
+        // 乗算ボタンの処理
+        private void BtnMultiplication_Click(object sender, EventArgs e)
+        {
+            SetOperator(3, " × ");
+        }
 
-            // 減算ボタンの処理
-            private void BtnSubtraction_Click(object sender, EventArgs e)
-            {
-                SetOperator(2, " - ");
-            }
-
-            // 乗算ボタンの処理
-            private void BtnMultiplication_Click(object sender, EventArgs e)
-            {
-                SetOperator(3, " × ");
-            }
-
-            // 除算ボタンの処理
-            private void BtnDivision_Click(object sender, EventArgs e)
-            {
-                SetOperator(4, " ÷ ");
-            }
+        // 除算ボタンの処理
+        private void BtnDivision_Click(object sender, EventArgs e)
+        {
+            SetOperator(4, " ÷ ");
+        }
 
             // イコールボタンの処理
         private void BtnEqual_Click(object sender, EventArgs e)
@@ -175,34 +183,14 @@ namespace SimpleCalc
                 if (num2 == 0)
                 {
                     Result.Text = "0で割ることはできません";
-                    BtnZero.Enabled = false;
-                    BtnOne.Enabled = false;
-                    BtnTwo.Enabled = false;
-                    BtnThree.Enabled = false;
-                    BtnFour.Enabled = false;
-                    BtnFive.Enabled = false;
-                    BtnSix.Enabled = false;
-                    BtnSeven.Enabled = false;
-                    BtnEight.Enabled = false;
-                    BtnNine.Enabled = false;
-                    BtnClearEntry.Enabled = false;
+                    SetNumericButtonEnabled(false);
                     return;
                 }
                 Result.Text = (num1 / num2).ToString();
             }
 
             // イコールボタンを押下後、0～9のボタンを押下できないようにする
-            BtnZero.Enabled = false;
-            BtnOne.Enabled = false;
-            BtnTwo.Enabled = false;
-            BtnThree.Enabled = false;
-            BtnFour.Enabled = false;
-            BtnFive.Enabled = false;
-            BtnSix.Enabled = false;
-            BtnSeven.Enabled = false;
-            BtnEight.Enabled = false;
-            BtnNine.Enabled = false;
-            BtnClearEntry.Enabled = false;
+            SetNumericButtonEnabled(false);
         }
 
         private void BtnClearEntry_Click(object sender, EventArgs e)
@@ -242,17 +230,9 @@ namespace SimpleCalc
             Formula.Text = "";
             Result.Text = "";
             count = 0;
-            BtnZero.Enabled = true;
-            BtnOne.Enabled = true;
-            BtnTwo.Enabled = true;
-            BtnThree.Enabled = true;
-            BtnFour.Enabled = true;
-            BtnFive.Enabled = true;
-            BtnSix.Enabled = true;
-            BtnSeven.Enabled = true;
-            BtnEight.Enabled = true;
-            BtnNine.Enabled = true;
-            BtnClearEntry.Enabled = true;
+
+            // 数字ボタンを有効化
+            SetNumericButtonEnabled(true);
         }
     }
 }
